@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oxford Himalayan Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <svg class="logo-mountain" viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 28 L14 6 L20 14 L26 4 L40 28 Z" fill="currentColor" opacity="0.9"/>
+        <path d="M10 28 L20 12 L30 28 Z" fill="currentColor" opacity="0.5"/>
+      </svg>
+      <span>Oxford Himalayan Society</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <!-- Prayer flag rope -->
+    <div class="prayer-rope" aria-hidden="true">
+      <div class="rope-line"></div>
+      <div class="flags-container">
+        <span class="flag f-blue"></span>
+        <span class="flag f-white"></span>
+        <span class="flag f-red"></span>
+        <span class="flag f-green"></span>
+        <span class="flag f-yellow"></span>
+        <span class="flag f-blue"></span>
+        <span class="flag f-white"></span>
+        <span class="flag f-red"></span>
+        <span class="flag f-green"></span>
+        <span class="flag f-yellow"></span>
+        <span class="flag f-blue"></span>
+        <span class="flag f-white"></span>
+        <span class="flag f-red"></span>
+        <span class="flag f-green"></span>
+        <span class="flag f-yellow"></span>
+      </div>
+    </div>
+
+    <div class="hero-content" id="heroContent">
+      <p class="hero-eyebrow">University of Oxford</p>
+      <h1 class="hero-title">Himalayan<br /><em>Society</em></h1>
+      <p class="hero-tagline">Where the mountains meet Oxford</p>
+      <div class="hero-cta">
+        <a href="events.html" class="btn btn-gold">Upcoming Events</a>
+        <a href="#about" class="btn btn-ghost">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Mountain silhouette -->
+    <div class="mountain-edge" aria-hidden="true">
+      <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,160 L0,130 L60,85 L110,105 L175,55 L230,85 L290,42 L355,78 L415,28 L480,68 L535,18 L600,58 L660,35 L720,65 L780,22 L840,55 L900,38 L960,72 L1020,45 L1080,68 L1140,28 L1200,60 L1260,40 L1320,70 L1380,50 L1440,75 L1440,160 Z" fill="currentColor"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text" data-animate>
+          <span class="label">Who We Are</span>
+          <h2>A home for the <em>Himalayas</em> at Oxford</h2>
+          <blockquote>
+            "The Himalayan Society is a new student organisation that provides a space for those from or interested in the region to learn more about the diverse cultures of the Himalayas. Be it guest lectures, Lhosar celebrations, momo-making events, or language immersion sessions, we hope to see you soon."
+          </blockquote>
+          <p class="about-body">
+            Spanning Nepal, Tibet, Bhutan, and the mountainous reaches of northern India, the Himalayan region is home to some of the world's most extraordinary cultures, languages, and traditions. We believe these deserve to be shared, celebrated, and better understood. Oxford is the perfect place to do it.
+          </p>
+          <p class="about-body">
+            Whether you grew up in the shadow of the mountains or are simply curious about the world beyond the peaks, you'll find a warm welcome here. No prior knowledge required. Just an open mind.
+          </p>
+          <div class="region-tags">
+            <span>Nepal</span>
+            <span>Tibet</span>
+            <span>Bhutan</span>
+            <span>Northern India</span>
+          </div>
+        </div>
+        <div class="about-visual" data-animate>
+          <div class="mandala">
+            <div class="mandala-ring r1"></div>
+            <div class="mandala-ring r2"></div>
+            <div class="mandala-ring r3"></div>
+            <div class="mandala-center">
+              <span class="mandala-symbol">☸</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="activities">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">What We Do</span>
+        <h2>Explore the <em>Himalayas</em><br />without leaving Oxford</h2>
+      </div>
+      <div class="activity-grid">
+        <div class="activity-card" data-animate>
+          <div class="card-accent"></div>
+          <div class="card-icon">🎓</div>
+          <h3>Guest Lectures</h3>
+          <p>Insights from scholars, adventurers, and cultural experts on Himalayan history, politics, and living traditions.</p>
+        </div>
+        <div class="activity-card" data-animate>
+          <div class="card-accent"></div>
+          <div class="card-icon">🎉</div>
+          <h3>Cultural Celebrations</h3>
+          <p>Join us for Lhosar, Dashain, Losar and other festivals celebrated across the Himalayan region.</p>
+        </div>
+        <div class="activity-card" data-animate>
+          <div class="card-accent"></div>
+          <div class="card-icon">🗣️</div>
+          <h3>Language Sessions</h3>
+          <p>Immersive introductions to Nepali, Tibetan, Dzongkha, and other languages of the mountains.</p>
+        </div>
+        <div class="activity-card" data-animate>
+          <div class="card-accent"></div>
+          <div class="card-icon">🥟</div>
+          <h3>Culinary Experiences</h3>
+          <p>From momo-making to thukpa nights, taste your way through the flavours of the Himalayas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events teaser -->
+  <section class="events-teaser">
+    <div class="container">
+      <div class="teaser-inner" data-animate>
+        <div class="teaser-text">
+          <span class="label">Coming Up</span>
+          <h2>Don't miss our<br />next event</h2>
+          <a href="events.html" class="btn btn-gold">View All Events</a>
+        </div>
+        <div class="teaser-card">
+          <div class="event-date">
+            <span class="month">Apr</span>
+            <span class="day">12</span>
+          </div>
+          <div class="event-body">
+            <span class="event-tag">Food &amp; Culture</span>
+            <h3>Momo Tasting Evening</h3>
+            <p>Join us for an evening of handmade momos, Himalayan music, and great company. All are welcome.</p>
+            <span class="event-location">📍 Oxford, venue TBC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">Oxford Himalayan Society</p>
+          <p class="footer-sub">University of Oxford</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-social">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">Facebook</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="prayer-strip" aria-hidden="true">
+          <span class="ps blue"></span><span class="ps white"></span><span class="ps red"></span><span class="ps green"></span><span class="ps yellow"></span>
+        </div>
+        <p>© 2025 Oxford Himalayan Society. University of Oxford.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
