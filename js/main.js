@@ -1,4 +1,4 @@
-/* Oxford Himalayan Society — main.js */
+/* Himalayan Society — main.js */
 
 // ── Mobile nav toggle ──────────────────────────────────────
 const navbar    = document.getElementById('navbar');
