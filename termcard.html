@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Term Card | Oxford Himalayan Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .termcard-section {
+      padding: 3rem 0 5rem;
+    }
+    .termcard-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .termcard-toolbar p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .termcard-embed {
+      width: 100%;
+      height: 80vh;
+      min-height: 600px;
+      border: 1px solid rgba(0,33,71,0.12);
+      border-radius: 2px;
+      background: var(--cream);
+    }
+    .termcard-fallback {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--cream);
+      border: 1px solid rgba(0,33,71,0.12);
+      border-radius: 2px;
+    }
+    .termcard-fallback p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      .termcard-embed { height: 70vh; min-height: 400px; }
+      .termcard-toolbar { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <svg class="logo-mountain" viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 28 L14 6 L20 14 L26 4 L40 28 Z" fill="currentColor" opacity="0.9"/>
+        <path d="M10 28 L20 12 L30 28 Z" fill="currentColor" opacity="0.5"/>
+      </svg>
+      <span>Oxford Himalayan Society</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="termcard.html" class="active">Term Card</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://forms.office.com/pages/responsepage.aspx?id=G96VzPWXk0-0uv5ouFLPkbThJP8VWiFGutqd9GzmrXRUQklOUDNMNTVOVUVBR1A0MFYySkZDRlcwTS4u&route=shorturl" class="nav-register" target="_blank" rel="noopener">Register</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="page-header-overlay"></div>
+    <div class="container page-header-content">
+      <span class="label">Trinity Term 2025</span>
+      <h1>Term <em>Card</em></h1>
+      <p>Our full programme for the term, from talks and film screenings to momos and tea.</p>
+    </div>
+    <div class="mountain-edge small" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,80 L0,55 L80,28 L160,48 L240,18 L320,38 L400,12 L480,35 L560,8 L640,32 L720,15 L800,38 L880,20 L960,42 L1040,18 L1120,35 L1200,14 L1280,30 L1360,18 L1440,35 L1440,80 Z" fill="currentColor"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- Term Card Viewer -->
+  <section class="termcard-section">
+    <div class="container">
+      <div class="termcard-toolbar">
+        <p>Can't see the PDF? <a href="Himalayan Society Trinity Term Card.pdf" target="_blank">Open in a new tab</a>.</p>
+        <a href="Himalayan Society Trinity Term Card.pdf" download class="btn btn-gold" style="padding: 0.55rem 1.2rem; font-size: 0.85rem;">Download PDF</a>
+      </div>
+      <iframe
+        class="termcard-embed"
+        src="Himalayan Society Trinity Term Card.pdf"
+        title="Oxford Himalayan Society Trinity Term Card"
+        loading="lazy">
+        <div class="termcard-fallback">
+          <p>Your browser doesn't support embedded PDFs.</p>
+          <a href="Himalayan Society Trinity Term Card.pdf" download class="btn btn-gold">Download the Term Card</a>
+        </div>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">Oxford Himalayan Society</p>
+          <p class="footer-sub">University of Oxford</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="termcard.html">Term Card</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-social">
+          <a href="#" class="social-btn">Instagram</a>
+          <a href="#" class="social-btn">Facebook</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="prayer-strip" aria-hidden="true">
+          <span class="ps blue"></span><span class="ps white"></span><span class="ps red"></span><span class="ps green"></span><span class="ps yellow"></span>
+        </div>
+        <p>© 2025 Oxford Himalayan Society. University of Oxford.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
