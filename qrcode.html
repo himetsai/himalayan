@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration QR Code — Oxford Himalayan Society</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --oxford-blue: #002147;
+      --gold:        #C9A84C;
+      --cream:       #F8F4EE;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .card {
+      background: var(--oxford-blue);
+      border-radius: 16px;
+      padding: 2.5rem 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 1.35rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .card-sub {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    canvas#qr {
+      border-radius: 10px;
+      display: block;
+      width: 320px;   /* display size stays reasonable */
+      height: 320px;
+      image-rendering: crisp-edges;
+    }
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      opacity: 0.5;
+      border-radius: 2px;
+    }
+    .btn {
+      background: var(--gold);
+      color: var(--oxford-blue);
+      border: none;
+      padding: 0.6rem 1.6rem;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    @media print {
+      body { background: white; }
+      .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <p class="card-sub">Oxford Himalayan Society</p>
+  <p class="card-title">Scan to Register</p>
+  <div class="divider"></div>
+  <canvas id="qr"></canvas>
+  <div class="divider"></div>
+  <button class="btn" id="dl">Download PNG</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  const URL = "https://forms.office.com/pages/responsepage.aspx?id=G96VzPWXk0-0uv5ouFLPkbThJP8VWiFGutqd9GzmrXRUQklOUDNMNTVOVUVBR1A0MFYySkZDRlcwTS4u&route=shorturl";
+
+  const BLUE  = "#002147";
+  const GOLD  = "#C9A84C";
+  const CREAM = "#F8F4EE";
+
+  const SCALE = window.devicePixelRatio || 2;  // retina support
+  const SIZE  = 600 * SCALE;   // canvas px (high-res)
+  const LOGO  = SIZE * 0.20;   // logo box ~20% of QR
+  const PAD   = SIZE * 0.016;  // padding around logo
+
+  const canvas = document.getElementById("qr");
+  canvas.width  = SIZE;
+  canvas.height = SIZE;
+
+  // qrcodejs renders into a hidden div, then we copy to our canvas
+  const tmp = document.createElement("div");
+  tmp.style.cssText = "position:absolute;left:-9999px;top:-9999px";
+  document.body.appendChild(tmp);
+
+  new QRCode(tmp, {
+    text: URL,
+    width: SIZE,
+    height: SIZE,
+    colorDark: BLUE,
+    colorLight: CREAM,
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  // qrcodejs is synchronous — the canvas is ready immediately
+  const srcCanvas = tmp.querySelector("canvas");
+  const ctx = canvas.getContext("2d");
+  ctx.drawImage(srcCanvas, 0, 0);
+  document.body.removeChild(tmp);
+  overlayLogo(canvas);
+
+  function overlayLogo(canvas) {
+    const ctx  = canvas.getContext("2d");
+    const cx   = canvas.width  / 2;
+    const cy   = canvas.height / 2;
+    const half = LOGO / 2;
+    const r    = 10; // corner radius of logo box
+
+    // White padding square
+    ctx.fillStyle = CREAM;
+    roundRect(ctx, cx - half - PAD, cy - half - PAD, LOGO + PAD*2, LOGO + PAD*2, r + 2);
+    ctx.fill();
+
+    // Oxford Blue background square
+    ctx.fillStyle = BLUE;
+    roundRect(ctx, cx - half, cy - half, LOGO, LOGO, r);
+    ctx.fill();
+
+    // Scale: SVG viewBox is 64x64, draw into LOGO×LOGO
+    const s = LOGO / 64;
+    ctx.save();
+    ctx.translate(cx - half, cy - half);
+    ctx.scale(s, s);
+
+    // Back mountain (semi-transparent gold)
+    ctx.globalAlpha = 0.5;
+    ctx.fillStyle = GOLD;
+    ctx.beginPath();
+    ctx.moveTo(18, 56);
+    ctx.lineTo(32, 28);
+    ctx.lineTo(46, 56);
+    ctx.closePath();
+    ctx.fill();
+
+    // Main peaks (full gold)
+    ctx.globalAlpha = 0.95;
+    ctx.fillStyle = GOLD;
+    ctx.beginPath();
+    ctx.moveTo(4,  56);
+    ctx.lineTo(24, 18);
+    ctx.lineTo(32, 30);
+    ctx.lineTo(40, 12);
+    ctx.lineTo(60, 56);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+  }
+
+  document.getElementById("dl").addEventListener("click", function() {
+    const link = document.createElement("a");
+    link.download = "himalayan-registration-qr.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+</script>
+</body>
+</html>
